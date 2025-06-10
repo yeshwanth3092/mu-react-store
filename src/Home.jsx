@@ -1,5 +1,7 @@
 import React from "react";
+import { Link,useNavigate } from "react-router-dom";
 import "./Home.css"
+import Cart from "./Cart";
 export default function Home() {
   const products = [
     {
@@ -24,6 +26,11 @@ export default function Home() {
       imgUrl: "https://picsum.photos/id/3/300/300",
     },
   ];
+  const Navigate= useNavigate;
+  const Buynow =()=>(
+    Navigate("\Cart")
+  );
+  
 
   return (
     <div className="App-Home-Row">
@@ -33,7 +40,9 @@ export default function Home() {
           <h2>{product.name}</h2>
           <p>{product.desc}</p>
           <h4>{product.price}</h4>
-          <p><button>Buy Now</button></p>
+          <p><button onClick="Buynow()">Buy Now</button></p>
+          
+          
         </div>
       ))}
     </div>
