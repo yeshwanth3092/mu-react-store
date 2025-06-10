@@ -1,9 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext} from "react";
+import {AppContext} from "./App";
 export default function Register() {
-  const [user, setUser] = useState({});
+  const {user, setUser,users,setUsers} = useContext(AppContext);
+
   const [count, setCount] = useState(0);
+
+
+  const handlesubmit =() =>{
+    setUsers([...users, user]);
+    
+  };
   const handleClick = () => {
     alert("Hello World");
   };
@@ -35,7 +43,7 @@ export default function Register() {
         />
       </p>
       <p>
-        <button>Submit</button>
+        <button onClick={handlesubmit}>Submit</button>
       </p>
       <hr />
       <p>
@@ -51,3 +59,4 @@ export default function Register() {
     </div>
   );
 }
+//hi
